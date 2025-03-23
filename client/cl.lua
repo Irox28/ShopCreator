@@ -112,7 +112,6 @@ function OpenMunitionMenu()
             title = v.label,
             description = "\n 📋 Description : " .. v.description .. "\n 💸 Prix : " .. v.price .. "$",
             onSelect = function()
-                -- Ouvrir un input pour choisir la quantité de munitions
                 local input = lib.inputDialog("Combien de munitions ?", {
                     { type = "number", label = "Quantité", min = 1, default = 1 }
                 })
@@ -121,7 +120,6 @@ function OpenMunitionMenu()
                     local quantity = tonumber(input[1])
                     local totalPrice = v.price * quantity
 
-                    -- Confirmation d'achat
                     local confirm = lib.alertDialog({
                         header = "Confirmer l'achat",
                         content = "Acheter " .. quantity .. "x " .. v.label .. " pour $" .. totalPrice .. " ?",
@@ -143,4 +141,4 @@ function OpenMunitionMenu()
         options = option
     })
     lib.showContext('OpenMunition:Menu')
-end
+end  
